@@ -1,8 +1,6 @@
 function fetchUserInfo(userId) {
     fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
         .then(response => {
-            console.log(response.status);
-            // エラーレスポンスが返されたことを検知する
             if (!response.ok) {
                 console.error("エラーレスポンス", response);
             } else {

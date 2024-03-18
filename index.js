@@ -6,4 +6,6 @@ fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
             // JSONパースされたオブジェクトが渡される
             console.log(userInfo); // => {...}
         });
+    }).catch(error => {
+        console.error(error);
     });

@@ -17,6 +17,8 @@ function fetchUserInfo(userId) {
                         <dd>${userInfo.public_repos}</dd>
                     </dl>
                     `;
+                    const result = document.getElementById("result");
+                    result.innerHTML = view;
                 });
             }
         }).catch(error => {

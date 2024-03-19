@@ -10,7 +10,7 @@ function fetchUserInfo(userId) {
     return fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
         .then(response => {
             if (!response.ok) {
-                console.error("エラーレスポンス", response);
+                return Promise.reject(new Error(`${response.status}: ${response.statusText}`));
             } else {
                 return response.json().then(userInfo => {
                     const view = createView(userInfo);

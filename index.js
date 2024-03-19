@@ -1,5 +1,7 @@
 function main() {
     fetchUserInfo("0cz3")
+    .then((userInfo) => createView(userInfo))
+    .then((view) => displayView(view))
     .catch((error) => {
         // Promiseチェーンの中で発生したエラーを受け取る
         console.error(`エラーが発生しました (${error})`);
@@ -12,10 +14,7 @@ function fetchUserInfo(userId) {
             if (!response.ok) {
                 return Promise.reject(new Error(`${response.status}: ${response.statusText}`));
             } else {
-                return response.json().then(userInfo => {
-                    const view = createView(userInfo);
-                    displayView(view);
-                });
+                return response.json();
             }
         });
 }
